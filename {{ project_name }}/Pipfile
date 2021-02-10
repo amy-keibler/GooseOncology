@@ -1,0 +1,26 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+{%- if target == "commandline" %}
+click = "7.1.2"
+{%- else %}
+flask = "1.1.2"
+{%- endif %}
+
+{%- if include_emoji %}
+emoji = "1.2.0"
+{%- endif %}
+
+[dev-packages]
+pytest = "*"
+
+[scripts]
+test = "python -m pytest"
+{%- if target == "commandline" %}
+cli = "python test_cli/cli.py"
+{%- else %}
+api = 'flask run'
+{%- endif %}

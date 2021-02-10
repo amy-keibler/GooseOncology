@@ -1,0 +1,32 @@
+name = "GooseOncology - Python"
+description = "An example kickstart template for Python"
+kickstart_version = 1
+
+ignore = [
+  "README.md"
+]
+
+cleanup = [
+  { name = "target", value = "api", paths = ["{{ project_name }}/{{ project_name }}/cli.py"]},
+  { name = "target", value = "commandline", paths = ["{{ project_name }}/{{ project_name }}/api.py", "{{ project_name }}/.env"]},
+]
+
+[[variables]]
+name = "project_name"
+default = "example"
+prompt = "What is the name for your project?"
+validation = "^([a-zA-Z][a-zA-Z0-9_-]+)$"
+
+[[variables]]
+name = "target"
+default = "api"
+prompt = "How will the user interact with this application?"
+choices = [
+  "api",
+  "commandline"
+]
+
+[[variables]]
+name = "include_emoji"
+default = true
+prompt = "Will this project include emoji?"
