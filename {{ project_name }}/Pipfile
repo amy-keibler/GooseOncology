@@ -20,7 +20,7 @@ pytest = "*"
 [scripts]
 test = "python -m pytest"
 {%- if target == "commandline" %}
-cli = "python test_cli/cli.py"
+cli = "python {{ project_name }}/cli.py"
 {%- else %}
 api = 'flask run'
 {%- endif %}

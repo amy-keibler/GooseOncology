@@ -1,4 +1,4 @@
-from {{project_name }}.lib import hello
+from {{ project_name }}.lib import hello
 
 def test_hello():
   assert "Hello, World{% if include_emoji %} 👋{% endif %}" == hello()
